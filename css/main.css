@@ -1,0 +1,379 @@
+        /* --- 全局样式重置与基础设置 --- */
+        :root {
+            --primary-color: #8B0000;
+            /* 深红，代表传统 */
+            --secondary-color: #2F4F4F;
+            /* 深岩灰，代表坚固 */
+            --accent-color: #D2691E;
+            /* 巧克力色，代表乡土 */
+            --bg-color: #f4f1ea;
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --light-text: #666666;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            background-image: url('img/bg.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-blend-mode: overlay;
+            /* 让背景图变淡，不干扰文字 */
+        }
+
+        /* --- 布局容器 --- */
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            /* 半透明白色背景 */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            min-height: 100vh;
+        }
+
+        /* --- 头部样式 --- */
+        header {
+            text-align: center;
+            padding: 40px 0 20px;
+            border-bottom: 3px double var(--primary-color);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        /* --- 导航栏 --- */
+        .nav-bar {
+            position: sticky;
+            /* 保持悬浮 */
+            top: 0;
+            background-color: var(--secondary-color);
+            z-index: 1000;
+            /* 确保在最上层 */
+            /* 修复点1：使用 Flexbox 替代旧的布局方式，实现完美居中 */
+            display: flex;
+            justify-content: center;
+            /* 水平居中 */
+            align-items: center;
+            flex-wrap: wrap;
+            /* 允许换行，防止小屏幕溢出 */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            margin: 0 auto 20px auto;
+            /* 上下0，左右自动（居中），底部留白 */
+            border-radius: 8px;
+            padding: 0 10px;
+            /* 左右内边距，防止文字贴边 */
+            /* 修复点2：限制最大宽度，使其与内容容器对齐 */
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 18px;
+            /* 减小左右内边距，防止拥挤 */
+            font-size: 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-align: center;
+        }
+
+
+        .nav-bar a:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.05);
+            /* 悬停放大效果 */
+        }
+        .current{background-color:orange;
+        color:white;}
+        /* --- 通用板块样式 --- */
+        section {
+            margin-bottom: 50px;
+            padding: 20px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: var(--accent-color);
+            margin: 15px 0 10px;
+            font-size: 1.3em;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* --- 图文混排布局 --- */
+        .content-flex {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .content-flex img {
+            max-width: 100%;
+            width: 450px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            /* 提示可点击 */
+            transition: opacity 0.3s;
+        }
+
+        .content-flex img:hover {
+            opacity: 0.9;
+        }
+
+        .text-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* 反转布局：图片在左 */
+        .reverse {
+            flex-direction: row-reverse;
+        }
+
+        /* --- 列表样式优化 --- */
+        dl {
+            margin-left: 20px;
+        }
+
+        dt {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-top: 15px;
+            font-size: 1.1em;
+        }
+
+        dd {
+            margin-left: 20px;
+            margin-bottom: 10px;
+            color: var(--light-text);
+        }
+
+        ol li,
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        b {
+            color: var(--primary-color);
+        }
+
+        /* --- 页脚 --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid #ddd;
+            color: var(--light-text);
+            font-size: 0.9em;
+        }
+
+        /* --- 交互组件：回到顶部 --- */
+        #backToTop {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: var(--primary-color);
+            color: white;
+            cursor: pointer;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        #backToTop:hover {
+            background-color: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        /* --- 交互组件：图片灯箱 (Lightbox) --- */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content {
+            margin: auto;
+            display: block;
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 5px;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {
+                transform: scale(0)
+            }
+
+            to {
+                transform: scale(1)
+            }
+        }
+
+        .close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close-lightbox:hover,
+        .close-lightbox:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* --- 响应式优化：防止文字溢出 --- */
+        @media screen and (max-width: 768px) {
+
+            /* 修复点3：移动端优化 */
+            .nav-bar {
+                flex-direction: column;
+                /* 移动端垂直排列 */
+                padding: 10px 0;
+            }
+
+            .nav-bar a {
+                width: 80%;
+                /* 移动端占宽 */
+                margin: 5px 0;
+                /* 上下间距 */
+            }
+
+            /* 修复点4：修复内容区域的宽度溢出 */
+            .container {
+                width: 100%;
+                max-width: 100%;
+                /* 确保容器不超出屏幕 */
+                padding: 10px;
+            }
+
+            section {
+                padding: 15px;
+            }
+        }
+
+        /* --- 页面导航样式 --- */
+        .page-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            margin-top: 30px;
+            background-color: var(--secondary-color);
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .page-navigation a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: bold;
+        }
+
+        .page-navigation a:hover {
+            background-color: var(--primary-color);
+            transform: scale(1.05);
+        }
+
+        .page-indicator {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .page-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: transparent;
+            border: 2px solid white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .page-dot.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+
+        .page-dot:not(.active):hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .page-info {
+            color: white;
+            font-size: 0.9em;
+            margin-left: 15px;
+        }
